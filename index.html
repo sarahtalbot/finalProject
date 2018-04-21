@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>ApataSCOREus</title>
+	<link rel="icon" type="img" href="assets/favicon.png">
 	<link rel="stylesheet" type="text/css" href="styles/slick.css">
 	<link rel="stylesheet" type="text/css" href="styles/slick-theme.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab" rel="stylesheet">
@@ -11,23 +12,33 @@
 </head>
 <body>
 	<header >
+		<article class ="row">
+			<div class="title-box">
+				<h1 class="title-text text-transition-element text-transition-element--slideInTop"> Thank you for visiting STMNH!</h1>
+				<h2 class="subtitle text-transition-element text-transition-element--slideInTop">Would you mind telling our friend about your visit?</h2>
+			</div>	
+		</article>
 		<article class="row flex-wrapper character-wrapper ">
-			<img class="character" src="assets/header_placeholder.svg">
+			<img type="svg" class="character" src="assets/header_placeholder.svg">
+			<div class="bodymovin"></div>
 			<!-- <div class="placeholder-character"></div> -->
 		</article>
-		<article class ="row">
+		<!-- <article class ="row">
 			<div class="question-box">
 				<h1 class="char-dialogue"> How did you like your visit?</h1>
 			</div>	
-		</article>
+		</article> -->
 	</header>
 
 	<div class="one-time">
 
 		<!-- First question panlel ! -->
 		<article class="col question-wrapper">
+			<div class="question-box">
+				<h1 class="char-dialogue"> How did you like your visit?</h1>
+			</div>	
 			<section class="row dialogue-box"> 
-					<h1 class="dialogue js-rating-positive">I had a great time</h1>
+					<h1 class="body-text js-rating-positive">I had a great time</h1>
 			</section>
 
 			<section class="row flex-wrapper question" >
@@ -41,8 +52,11 @@
 
 		<!-- Second Question Panel - Free Answer-->
 		<article class="col question-wrapper">
+			<div class="question-box">
+				<h1 class="char-dialogue"> What can we do better?</h1>
+			</div>	
 			<section class="row dialogue-box"> 
-					<h1 class="dialogue">We fossilize your input!</h1>
+					<h1 class="body-text">We fossilize your input!</h1>
 			</section>
 			<section class="row">
 				<textarea class="input-box input-box-free"></textarea>
@@ -53,16 +67,27 @@
 
 		<!-- Third Question Panel - Signup page -->
 
-		<article class="col question-wrapper">
-			<form class="flex-wrapper">
-				<input type="text" class="input-box js-fullName" placeholder="Name">
-				<input type="text" class="input-box js-email" placeholder="Email"> 
-				<input type="button" name="check-box" class="check-box"> 
-				<p class="bodyText decline"> No thanks! I will stay in the stone age!</p>
-			</form>
+		<article class="col question-wrapper flex-wrapper">
+			<div class="question-box">
+				<h1 class="char-dialogue"> Would you like to sign up for weekly discoveries?</h1>
+			</div>	
+			<!-- <form class="flex-wrapper"> -->
+				<input type="text" class="input-box js-fullName" placeholder="Name" class="row short-anim">
+				<input type="text" class="input-box js-email" placeholder="Email" class="row short-anim">  
+				<div class="row">
+					<input type="button" name="check-box" class="check-box short-anim"> 
+					 <p class="body-text decline inactive short-anim"> No thanks! I will stay in the stone age!</p>
+				</div>
+			<!-- </form> -->
 		</article>
 		
 	</div>
+
+	<article class="row flex-wrapper">
+		<div class="submit-container">
+			<button class="submit short-anim inactive">Submit</button>
+		</div>
+	</article>
 	
 
 
@@ -80,11 +105,13 @@ $(function(){
   infinite: true,
   speed: 300,
   slidesToShow: 1,
-  adaptiveHeight: false
+  adaptiveHeight: false,
+  draggable: false,
 	});
 });
-	
 </script>
+<script src="js/bodymovin.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/characterAnim.js"></script>
 </body>
 </html>
 
