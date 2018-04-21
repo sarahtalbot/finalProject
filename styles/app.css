@@ -1,0 +1,201 @@
+/*Styles for dinosaur survey version 02*/
+
+/*colors 
+teal #07d3c8
+cyan 006b84
+dark blue 323e60
+dark orange ff792e
+light orange ffb36e
+red dd5143
+off-white fcf3d9
+*/
+
+body{
+	/*background-color: #fcf3d9;*/
+	background-color: #006b84;
+	font-family: 'Roboto Slab', serif;
+	color: #323e60;
+	min-width: 410px;
+
+}
+
+
+.one-time{
+	background-color: #fcf3d9;
+	padding:2%;
+}
+
+
+.character{
+	width: 50%;
+	height: 50%;
+}
+
+.input-box{
+	display: block;
+	border: 2px solid #323e60;
+	border-radius: 2px;
+	font-size: 16px;
+	padding: 12px 20px;
+	margin: 10px;
+	transition: 0.2s;
+	outline: none;
+}
+
+.input-box:focus{
+	border:2px solid #ff792e;
+}
+
+
+.input-box-free{
+	width: 65%;
+	overflow: visible;
+	height: 150px;
+	margin: auto;
+}
+
+.ratingWrapper{
+	justify-content: center;
+}
+
+.button-container{
+	display: block;
+	margin: 0px 10px 0px 10px;
+}
+
+.rate-star{
+	margin: 20px;
+	background-color:#323e60;
+	border-radius: 50%;
+	outline: none;
+}
+
+.rate-star:hover{
+	background-color: #ff792e;
+	transition: 0.2s;
+}
+
+.rate-star:active{
+	background-color: #ff792e;
+}
+
+.slick-slider {
+	max-width:80%;
+	margin:auto;
+}
+
+.slick-prev{
+	/*height: 300px;
+	width: 300px;*/
+
+	background: url("../assets/navigationArrow_right.svg");
+}
+
+.slick-next{
+	background: url("../assets/navigationArrow_left.svg");
+}
+
+.slick-slide{
+	justify-content: center;
+}
+
+.flex-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	/*justify-content: center;
+	margin: auto;*/
+}
+
+.character-wrapper, .question{
+	justify-content: center;
+	margin: auto;
+}
+
+
+.row{
+	box-sizing: border-box;
+	width: 100%;
+	/*border:1px solid black;*/
+}
+
+.col{
+	/*border: 1px solid red;*/
+	box-sizing: border-box;
+}
+
+.question-box{
+	background-color: #07d3c8;
+	padding-left:20%;
+	padding-right: 20%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 60%;
+	margin: 5px 0 5px 0;
+	/*border:1px solid green;*/
+	border-radius:5px;
+}
+
+
+.char-dialogue{
+	font-size: 20px;
+	text-align: center;
+}
+
+.dialogue{
+	font-size: 16px;
+	text-align: center;
+	/*display: block;*/
+}
+
+
+.question-wrapper{
+	width: 60%;
+}
+
+
+.counter{
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+.placeholder{
+	background-color: #07d3c8;
+	height: 20px;
+	width: 20px;
+	margin: 20px;
+}
+
+.placeholder-character{
+	background-image: url(".../assets/header_placeholder.svg");
+	background-color: #07d3c8;
+	height: 200px;
+	width: 200px;
+	margin: 20px;
+}
+
+
+.placeholder-question{
+	background-color: #07d3c8;
+	height: 200px;
+	width: 200px;
+	margin: 20px;
+}
+
+
+/*.nav{
+	width:20%;
+	justify-content: center;
+	margin: auto;
+}*/
+
+/*.col-twoThirds{
+	width: 66.666%;
+}
+
+
+.col-oneThird{
+	width: 33.333%;
+}*/

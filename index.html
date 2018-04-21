@@ -1,0 +1,101 @@
+
+<!-- version 04 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ApataSCOREus</title>
+	<link rel="stylesheet" type="text/css" href="styles/slick.css">
+	<link rel="stylesheet" type="text/css" href="styles/slick-theme.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/app.css">
+</head>
+<body>
+	<header >
+		<article class="row flex-wrapper character-wrapper ">
+			<img class="character" src="assets/header_placeholder.svg">
+			<!-- <div class="placeholder-character"></div> -->
+		</article>
+		<article class ="row">
+			<div class="question-box">
+				<h1 class="char-dialogue"> How did you like your visit?</h1>
+			</div>	
+		</article>
+	</header>
+
+	<div class="one-time">
+
+		<!-- First question panlel ! -->
+		<article class="col question-wrapper">
+			<section class="row dialogue-box"> 
+					<h1 class="dialogue js-rating-positive">I had a great time</h1>
+			</section>
+
+			<section class="row flex-wrapper question" >
+					<input type="button" name="rate-one" class="rate-star">
+						
+					<input type="button" name="rate-two" class="rate-star">
+
+					<input type="button" name="rate-three" class="rate-star">
+			</section>
+		</article>
+
+		<!-- Second Question Panel - Free Answer-->
+		<article class="col question-wrapper">
+			<section class="row dialogue-box"> 
+					<h1 class="dialogue">We fossilize your input!</h1>
+			</section>
+			<section class="row">
+				<textarea class="input-box input-box-free"></textarea>
+			</section>
+
+			
+		</article>
+
+		<!-- Third Question Panel - Signup page -->
+
+		<article class="col question-wrapper">
+			<form class="flex-wrapper">
+				<input type="text" class="input-box js-fullName" placeholder="Name">
+				<input type="text" class="input-box js-email" placeholder="Email"> 
+				<input type="button" name="check-box" class="check-box"> 
+				<p class="bodyText decline"> No thanks! I will stay in the stone age!</p>
+			</form>
+		</article>
+		
+	</div>
+	
+
+
+	
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/slick.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.one-time').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: false
+	});
+});
+	
+</script>
+</body>
+</html>
+
+
+<!-- 	<article class="row counter">
+					<h1>4 more questions</h1>
+				</article> -->
+
+
+
+
+
+
+
