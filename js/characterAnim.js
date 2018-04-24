@@ -17,7 +17,7 @@
 
 
 const animation = bodymovin.loadAnimation({
-  container: document.getElementByClassName('bodymovin'),
+  container: document.querySelector('.bodymovin'),
   renderer: 'svg',
   loop: true,
   autoplay: true,
