@@ -41,31 +41,37 @@
 				<h1 class="char-dialogue"> How did you like your visit?</h1>
 			</div>	
 			<section class="row dialogue-box"> 
-					<h1 class="body-text js-rating-positive">I had a great time</h1>
+					<h1 class="body-text js-question-one">I had a great time</h1>
 			</section>
 
 			<section class="row flex-wrapper question" >
-					<input type="button" name="rate-one" class="rate-star">
-						
-					<input type="button" name="rate-two" class="rate-star">
 
-					<input type="button" name="rate-three" class="rate-star">
+					<div class="button-container">
+						<input type="radio" name ="rating" value="rate-one" class="rate-star">
+					</div>
+
+					<div class="button-container">
+						<input type="radio" name ="rating" value="rate-two" class="rate-star">
+					</div>
+					
+					<div class="button-container">
+						<input type="radio" name ="rating" value="rate-three" class="rate-star">
+					</div>
+					
 			</section>
 		</article>
 
 		<!-- Second Question Panel - Free Answer-->
 		<article class="col question-wrapper">
 			<div class="question-box">
-				<h1 class="char-dialogue"> What can we do better?</h1>
+				<h1 class="char-dialogue js-question-two"> What can we do better?</h1>
 			</div>	
-			<section class="row dialogue-box"> 
-					<h1 class="body-text">We fossilize your input!</h1>
-			</section>
 			<section class="row">
 				<textarea class="input-box input-box-free"></textarea>
 			</section>
-
-			
+			<section class="row dialogue-box"> 
+					<h1 class="body-text">We fossilize your input!</h1>
+			</section>	
 		</article>
 
 		<!-- Third Question Panel - Signup page -->
@@ -96,6 +102,9 @@
 
 	
 
+
+<script src="js/bodymovin.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/characterAnim.js"></script>
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -105,7 +114,7 @@
 $(function(){
 	$('.one-time').slick({
   dots: false,
-  infinite: true,
+  infinite: false,
   speed: 300,
   slidesToShow: 1,
   adaptiveHeight: false,
@@ -113,8 +122,7 @@ $(function(){
 	});
 });
 </script>
-<script src="js/bodymovin.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/characterAnim.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
 

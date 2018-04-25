@@ -1,4 +1,4 @@
-//Begin Function Setup
+//Begin general Function Setup
 
 const changeText = (element, newText) =>{
 	element.innerHTML = newText;
@@ -6,20 +6,20 @@ const changeText = (element, newText) =>{
 };
 
 const findResponse = (radioButtonClass) =>{
-	console.log(`Which response is [${radioButtonClass}]?`);
+	// console.log(`Which response is [${radioButtonClass}]?`);
 	
 	let ratingResponse = 'default';
 
 	if(radioButtonClass === 'rate-one'){
-		ratingResponse = 'response 01';	
+		ratingResponse = 'There were problems';	
 	}
 
 	else if(radioButtonClass === 'rate-two'){
-		ratingResponse = 'response 02';
+		ratingResponse = 'I experienced good things and bad things';
 	}
 
 	else if(radioButtonClass === 'rate-three'){
-		ratingResponse = 'response 03';
+		ratingResponse = 'I had a great time';
 	}
 
 	else{
@@ -54,15 +54,15 @@ const findQuestionTwo = (buttonPressedValue) =>{
 	let questionTwoOption = 'default';
 
 	if(buttonPressedValue === 'rate-one'){
-		questionTwoOption = 'Option 01';	
+		questionTwoOption = 'What can we do better?';	
 	}
 
 	else if(buttonPressedValue === 'rate-two'){
-		questionTwoOption = 'Option 02';
+		questionTwoOption = 'What made the good things stand out?';
 	}
 
 	else if(buttonPressedValue === 'rate-three'){
-		questionTwoOption = 'Option 03';
+		questionTwoOption = 'What was your favorite part of your visit?';
 	}
 
 	else{
@@ -78,11 +78,6 @@ const setQuestionTwo = (value, elementClass) =>{
 	changeText(element, questionTwoText);
 
 }
-
-// End Function setup
-
-// Set up Event Listeners
-
 
 const listOfButtons = document.querySelectorAll('.rate-star');
 
@@ -107,3 +102,8 @@ for(let i = 0; i <listOfButtons.length; i++){
 	})
 
 }
+
+
+
+
+

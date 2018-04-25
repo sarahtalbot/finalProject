@@ -221,6 +221,12 @@ body{
 	opacity: 1; 
 }
 
+.submit:focus{
+	background-color: #ff792e;
+	opacity: 1; 
+
+}
+
 .ratingWrapper{
 	justify-content: center;
 }
@@ -228,6 +234,13 @@ body{
 .button-container{
 	display: block;
 	margin: 0px 10px 0px 10px;
+	cursor: pointer;
+}
+
+.button-cobtainer input{
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
 }
 
 .rate-star{
@@ -242,7 +255,7 @@ body{
 	transition: 0.2s;
 }
 
-.rate-star:active{
+.rate-star:checked{
 	background-color: #ff792e;
 }
 
