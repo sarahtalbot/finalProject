@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>ApataSCOREus</title>
+	 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab" rel="stylesheet">
 	<link rel="icon" type="img" href="assets/favicon.png">
 	<link rel="stylesheet" type="text/css" href="styles/slick.css">
@@ -33,64 +34,73 @@
 		</article> -->
 	</header>
 
-	<div class="one-time">
-
-		<!-- First question panlel ! -->
-		<article class="col question-wrapper">
-			<div class="question-box">
-				<h1 class="char-dialogue"> How did you like your visit?</h1>
-			</div>	
-			<section class="row dialogue-box"> 
-					<h1 class="body-text js-question-one">I had a great time</h1>
-			</section>
-
-			<section class="row flex-wrapper question" >
-
-					<div class="button-container">
-						<input type="radio" name ="rating" value="rate-one" class="rate-star">
-					</div>
-
-					<div class="button-container">
-						<input type="radio" name ="rating" value="rate-two" class="rate-star">
-					</div>
-					
-					<div class="button-container">
-						<input type="radio" name ="rating" value="rate-three" class="rate-star">
-					</div>
-					
-			</section>
-		</article>
-
-		<!-- Second Question Panel - Free Answer-->
-		<article class="col question-wrapper">
-			<div class="question-box">
-				<h1 class="char-dialogue js-question-two"> What can we do better?</h1>
-			</div>	
-			<section class="row">
-				<textarea class="input-box input-box-free"></textarea>
-			</section>
-			<section class="row dialogue-box"> 
-					<h1 class="body-text">We fossilize your input!</h1>
-			</section>	
-		</article>
-
-		<!-- Third Question Panel - Signup page -->
-
-		<article class="col question-wrapper flex-wrapper">
-			<div class="question-box">
-				<h1 class="char-dialogue"> Would you like to sign up for weekly discoveries?</h1>
-			</div>	
-			<!-- <form class="flex-wrapper"> -->
-				<input type="text" class="input-box js-fullName" placeholder="Name" class="row short-anim">
-				<input type="text" class="input-box js-email" placeholder="Email" class="row short-anim">  
-				<div class="row">
-					<input type="button" name="check-box" class="check-box short-anim"> 
-					 <p class="body-text decline inactive short-anim"> No thanks! I will stay in the stone age!</p>
-				</div>
-			<!-- </form> -->
-		</article>
+	<div class="flex-wrapper">
 		
+	<div class="slick-arrow js-slick-prev"></div>
+
+		<div class="one-time">
+			<!-- First question panlel ! -->
+			<article class="col question-wrapper">
+				<div class="question-box">
+					<h1 class="char-dialogue"> How did you like your visit?</h1>
+				</div>	
+				<section class="row dialogue-box"> 
+						<h1 class="body-text js-question-one">I had a great time</h1>
+				</section>
+
+				<section class="row flex-wrapper question" >
+
+						<div class="button-container">
+							<input type="radio" name ="rating" value="rate-one" class="rate-star">
+						</div>
+
+						<div class="button-container">
+							<input type="radio" name ="rating" value="rate-two" class="rate-star">
+						</div>
+						
+						<div class="button-container">
+							<input type="radio" name ="rating" value="rate-three" class="rate-star">
+						</div>
+						
+				</section>
+			</article>
+
+			<!-- Second Question Panel - Free Answer-->
+			<article class="col question-wrapper">
+				<div class="question-box">
+					<h1 class="char-dialogue js-question-two"> What can we do better?</h1>
+				</div>	
+				<section class="row">
+					<textarea class="input-box input-box-free"></textarea>
+				</section>
+				<section class="row dialogue-box"> 
+						<h1 class="body-text">We fossilize your input!</h1>
+				</section>	
+			</article>
+
+			<!-- Third Question Panel - Signup page -->
+
+			<article class="col question-wrapper flex-wrapper">
+				<div class="question-box">
+					<h1 class="char-dialogue"> Would you like to sign up for weekly discoveries?</h1>
+				</div>	
+				<!-- <form class="flex-wrapper"> -->
+					<input type="text" class="input-box js-fullName short-anim inactive" placeholder="Name">
+					<input type="text" class="input-box js-email short-anim" placeholder="Email"> 
+					<div class="input-decline">
+						<input type="radio" name="check-box" class="check-box short-anim decline"> 
+						<p class="body-text inactive short-anim decline"> No thanks! I will stay in the stone age!</p> 
+					</div>
+				<!-- </form> -->
+			</article>	
+		</div>
+
+	<div class="slick-arrow js-slick-next"></div>
+
+
+
 	</div>
+
 
 	<article class="row flex-wrapper">
 		<div class="submit-container">
@@ -104,7 +114,7 @@
 
 
 <script src="js/bodymovin.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/characterAnim.js"></script>
+<!-- <script type="text/javascript" src="js/characterAnim.js"></script> -->
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -118,7 +128,8 @@ $(function(){
   speed: 300,
   slidesToShow: 1,
   adaptiveHeight: false,
-  draggable: false,
+  draggable: true,
+  arrows: false,
 	});
 });
 </script>

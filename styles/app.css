@@ -69,6 +69,11 @@ body{
 
 .decline{
 	display: inline-block;
+	margin: 0 0 0 10px;
+}
+
+.input-decline{
+	margin-top: 10px;
 }
 
 
@@ -102,13 +107,6 @@ body{
 }
 
 
-.character-wrapper{
-	width: 50%;
-	display: inline-block;
-	position: relative;
-}
-
-
 .title-box{
 	padding: 5px;
 	margin:5px 0 20px 0
@@ -130,19 +128,24 @@ body{
 
 .question-wrapper{
 	width: 60%;
+	margin: 0 10px 0 10px;
 }
-
-
 
 /*Character*/
 
 .bodymovin{
 	margin: 0;
 	position: absolute;
-	top: 20px;
-	left: 30px;
+	top: 60px;
+	left: 60px;
 	background: transparent;
 
+}
+
+.character-wrapper{
+	width: 50%;
+	display: inline-block;
+	position: relative;
 }
 
 .character{
@@ -174,6 +177,7 @@ body{
 }
 
 
+
 .input-box-free{
 	width: 65%;
 	overflow: visible;
@@ -189,7 +193,7 @@ body{
 }
 
 .check-box{
-	margin: auto;
+	margin: 0 0 0 10px;
 	background-color: #dd5143;
 	opacity: 0.5;
 	outline: none;
@@ -201,7 +205,9 @@ body{
 
 .inactive{
 	opacity: 0.5;
+	pointer-events: none;
 }
+
 
 
 .submit{
@@ -275,18 +281,33 @@ body{
 	clear: both;
 }
 
-.slick-prev{
-	height: 100px;
-	width: 100px;
-	background: url("../assets/navigationArrow_right.svg");
-	float:right;
+/*.slick-arrow{
+	content: none;*/
+
 }
 
-.slick-next{
-	height: 100px;
-	width: 100px;
+.js-slick-prev:hover, .js-slick-prev:focus, .js-slick-next:hover, .js-slick-next:focus{
+	background: red;
+}
+
+.js-slick-prev{
+	/*height: 100px;
+	width: 100px;*/
+	/*min-width: 10%;
+	height:100px;*/
+	/*background: url("../assets/navigationArrow_right.svg");*/
+	width:10%;
+	float:right;
+	left:100px;
+}
+
+.js-slick-next{
+	/*min-width: 10%;
+	height:100px;*/
+	width:10%;
 	float:left;
-	background: url("../assets/navigationArrow_left.svg");
+	right:-100px;
+	/*background: url("../assets/navigationArrow_left.svg");*/
 }
 
 .slick-slide{
