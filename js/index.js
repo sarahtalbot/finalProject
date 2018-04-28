@@ -75,23 +75,23 @@ leftArrow.addEventListener('mouseleave', ()=>{
 
 
 // load Animations for character reaction
-const animation = bodymovin.loadAnimation({
-  container: document.querySelector('.bodymovin'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: "js/json/data-idle.json",
-})
+// const animation = bodymovin.loadAnimation({
+//   container: document.querySelector('.bodymovin'),
+//   renderer: 'svg',
+//   loop: true,
+//   autoplay: true,
+//   path: "js/json/data-idle.json",
+// })
 
 const happyAnimation = bodymovin.loadAnimation({
 	container: document.querySelector('.bodymovin'),
     renderer: 'svg',
     loop: false,
-    prerender: true,
-    autoplay: true,
+    prerender: false,
+    autoplay: false,
     autoloadSegments: false,
-    path: 'js/json/data-happy.json'
-})
+    path: 'js/json/data-happy.json',
+});
 
 //Begin general Function Setup
 
@@ -175,19 +175,25 @@ const setQuestionTwo = (value, elementClass) =>{
 }
 
 
-
 const playReaction = (value) =>{
+	isPlaying = true;
+	console.log(value)
 	console.log('in playReaction');
 	if(value === 'rate-one'){
-		return happyAnimation.play();	
+		console.log("yay!1")
+		happyAnimation.playSegments([1,48], true);
+		isPlaying = false	
 	}
 
 	else if(value === 'rate-two'){
-		return happyAnimation.play();
+		console.log("yay!2")
+		console.log(happyAnimation.play());
+		happyAnimation.playSegments([1,48], true)
 	}
 
 	else if(value === 'rate-three'){
-		return happyAnimation.play();
+		console.log("yay!3")
+		happyAnimation.playSegments([1,48], true);
 	}
 
 }
@@ -202,9 +208,13 @@ const playReaction = (value) =>{
 
 
 
+let isPlaying = false
+/*if (!isPlaying) {
+	// play Idle Animation
+};*/
+
 
 const listOfButtons = document.querySelectorAll('.rate-star');
-
 for(let i = 0; i <listOfButtons.length; i++){
 
 	listOfButtons[i].addEventListener('mouseover', () => {
@@ -213,11 +223,11 @@ for(let i = 0; i <listOfButtons.length; i++){
 		// }
 	})
 	listOfButtons[i].addEventListener('click', () => {
+		$('input[name=Choose]').attr('checked',false);
 		characterResponse(listOfButtons[i].getAttribute('value'), '.js-question-one');
 		checkedValue = findCheckedValue('rating');
 		setQuestionTwo(checkedValue, '.js-question-two');
 		playReaction(checkedValue);
-
 	})
 	listOfButtons[i].addEventListener('mouseout', () =>{
 		if (isAnythingChecked('rating')) {
@@ -228,6 +238,19 @@ for(let i = 0; i <listOfButtons.length; i++){
 	})
 
 }
+
+
+const checkBox = document.querySelector('.js-checkbox');
+const nameForms = document.querySelectorAll('js-personalInfo')
+checkBox.addEventListener('click', () =>{
+	if(checkBox.getAttribute('checked')){
+		checkBox.removeAttribute('checked');
+		nameForms.removeClass('inactive')
+	}
+	else{
+		nameForms.addClass(inactive);
+	}
+});
 
 
 
