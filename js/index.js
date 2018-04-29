@@ -1,6 +1,45 @@
 // JS for ApataSCOREus
 
 
+console.log($('.one-time'), $('.one-time').length)
+$('.one-time').slick({
+		dots: false,
+		infinite: false,
+		speed: 300,
+		slidesToShow: 1,
+		adaptiveHeight: false,
+		draggable: true,
+		arrows: false,
+});
+
+
+
+// Set up Event Listeners
+const $nextButton = $('.js-slick-next');
+$nextButton.on('click', ()=>{
+	$('.one-time').slick('slickNext');
+})
+const $prevButton = $('.js-slick-prev');
+$prevButton.on('click', ()=>{
+	$('.one-time').slick('slickPrev');
+})
+
+
+	const checkBox = document.querySelector('.js-checkbox'); 
+	console.log(checkBox)
+	const nameForms = document.querySelectorAll('.js-personalInfo')
+	checkBox.addEventListener('click', () =>{
+		if(checkBox.getAttribute('checked')){
+			checkBox.removeAttribute('checked');
+			nameForms.classList.remove('inactive')
+		}
+		else{
+			for(let i=0; i<nameForms.length; i++){
+				nameForms[i].classList.add('inactive');
+			}
+		}
+	});
+
 
 // Arrow Buttons
 const rightArrowAnim = bodymovin.loadAnimation({
@@ -43,13 +82,13 @@ rightArrow.addEventListener('mouseenter', ()=>{
 	// 	return;
 	// }
 	// rollOutArrow(rightArrow);
-	rightArrowAnim.playSegments([1,12]);
+	rightArrowAnim.playSegments([1,12], true);
 	isMousedOverRight = true;
 })
 rightArrow.addEventListener('mouseleave', ()=>{
 	console.log("mouse out arrow")
 	// rollInArrow(rightArrow);
-	rightArrowAnim.playSegments([13,24]);
+	rightArrowAnim.playSegments([13,24], true);
 	isMousedOverRight = false;
 })
 
@@ -61,13 +100,13 @@ leftArrow.addEventListener('mouseenter', ()=>{
 	// 	return;
 	// }
 	// rollOutArrow(leftArrow);
-	leftArrowAnim.playSegments([1,12])
+	leftArrowAnim.playSegments([1,12], true)
 	isMousedOverLeft = true;
 })
 leftArrow.addEventListener('mouseleave', ()=>{
 	console.log("mouse out arrow")
 	// rollInArrow(leftArrow);
-	leftArrowAnim.playSegments([13,24]);
+	leftArrowAnim.playSegments([13,24], true);
 	isMousedOverLeft = false;
 })
 
@@ -239,18 +278,6 @@ for(let i = 0; i <listOfButtons.length; i++){
 
 }
 
-
-const checkBox = document.querySelector('.js-checkbox');
-const nameForms = document.querySelectorAll('js-personalInfo')
-checkBox.addEventListener('click', () =>{
-	if(checkBox.getAttribute('checked')){
-		checkBox.removeAttribute('checked');
-		nameForms.removeClass('inactive')
-	}
-	else{
-		nameForms.addClass(inactive);
-	}
-});
 
 
 
