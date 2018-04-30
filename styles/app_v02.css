@@ -1,4 +1,4 @@
-/*Styles for dinosaur survey version 03*/
+/*Styles for dinosaur survey version 02*/
 
 /*colors 
 teal #07d3c8
@@ -63,6 +63,7 @@ body{
 .body-text{
 	font-size: 20px;
 	text-align: center;
+	/*display: inline-block;*/
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -76,11 +77,14 @@ body{
 }
 
 
+
 /*structure*/
 
 .flex-wrapper{
 	display: flex;
 	flex-wrap: wrap;
+	/*justify-content: center;
+	margin: auto;*/
 }
 
 .row{
@@ -102,6 +106,7 @@ body{
 	padding: 10px;
 }
 
+
 .title-box{
 	padding: 5px;
 	margin:5px 0 20px 0
@@ -120,6 +125,7 @@ body{
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
+
 .question-wrapper{
 	width: 60%;
 	margin: 0 10px 0 10px;
@@ -130,7 +136,7 @@ body{
 .bodymovin{
 	margin: 0;
 	position: absolute;
-	top: 30px;
+	top: 60px;
 	left: 60px;
 	background: transparent;
 
@@ -166,8 +172,11 @@ body{
 }
 
 .input-box:focus{
-	border:2px solid #ff792e;	
+	border:2px solid #ff792e;
+	
 }
+
+
 
 .input-box-free{
 	width: 65%;
@@ -188,7 +197,6 @@ body{
 	background-color: #dd5143;
 	opacity: 0.5;
 	outline: none;
-	cursor: pointer;
 }
 
 .check-box:active{
@@ -235,6 +243,12 @@ body{
 	cursor: pointer;
 }
 
+.button-cobtainer input{
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
 .rate-star{
 	margin: 0 20px 0 20px;
 	background-color:#323e60;
@@ -276,23 +290,63 @@ body{
 }
 
 .js-slick-prev{
+	/*height: 100px;
+	width: 100px;*/
+	/*min-width: 10%;
+	height:100px;*/
+	/*background: url("../assets/navigationArrow_right.svg");*/
 	width:10%;
 	float:right;
 	left:100px;
 }
 
 .js-slick-next{
+	/*min-width: 10%;
+	height:100px;*/
 	width:10%;
 	float:left;
 	right:-100px;
+	/*background: url("../assets/navigationArrow_left.svg");*/
 }
 
 .slick-slide{
 	justify-content: center;
 }
 
+/*unused and placeholder*/
 
-/*Keyframes*/
+.counter{
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+.placeholder{
+	background-color: #07d3c8;
+	height: 20px;
+	width: 20px;
+	margin: 20px;
+}
+
+.placeholder-character{
+	background-image: url(".../assets/header_placeholder.svg");
+	background-color: #07d3c8;
+	height: 200px;
+	width: 200px;
+	margin: 20px;
+}
+
+
+.placeholder-question{
+	background-color: #07d3c8;
+	height: 200px;
+	width: 200px;
+	margin: 20px;
+}
+
+
 
 
 @keyframes slideInTop{
@@ -316,4 +370,20 @@ body{
 	100%{
 		opacity: 100%
 	}
+}
+
+
+/*.nav{
+	width:20%;
+	justify-content: center;
+	margin: auto;
+}*/
+
+/*.col-twoThirds{
+	width: 66.666%;
+}
+
+
+.col-oneThird{
+	width: 33.333%;
 }

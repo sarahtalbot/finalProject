@@ -1,6 +1,6 @@
 // JS for ApataSCOREus
 
-// Set up Slick
+
 console.log($('.one-time'), $('.one-time').length)
 $('.one-time').slick({
 		dots: false,
@@ -12,6 +12,9 @@ $('.one-time').slick({
 		arrows: false,
 });
 
+
+
+// Set up Event Listeners
 const $nextButton = $('.js-slick-next');
 $nextButton.on('click', ()=>{
 	$('.one-time').slick('slickNext');
@@ -22,26 +25,20 @@ $prevButton.on('click', ()=>{
 })
 
 
-// set up Checkbox controls
-const checkBox = document.querySelector('.js-checkbox');
-const checkBoxText = document.querySelector('.js-decline-text');
-console.log(checkBox)
-const nameForms = document.querySelectorAll('.js-personalInfo')
-checkBox.addEventListener('click', () =>{
-	if(checkBox.getAttribute('checked')){
-		checkBox.removeAttribute('checked');
-		checkBoxText.classList.toggle('inactive');
-		for(let i=0; i<nameForms.length; i++){
-			nameForms[i].classList.toggle('inactive');
+	const checkBox = document.querySelector('.js-checkbox'); 
+	console.log(checkBox)
+	const nameForms = document.querySelectorAll('.js-personalInfo')
+	checkBox.addEventListener('click', () =>{
+		if(checkBox.getAttribute('checked')){
+			checkBox.removeAttribute('checked');
+			nameForms.classList.remove('inactive')
 		}
-	}
-	else{
-		checkBoxText.classList.toggle('inactive');
-		for(let i=0; i<nameForms.length; i++){
-			nameForms[i].classList.toggle('inactive');
+		else{
+			for(let i=0; i<nameForms.length; i++){
+				nameForms[i].classList.add('inactive');
+			}
 		}
-	}
-});
+	});
 
 
 // Arrow Buttons
@@ -117,36 +114,23 @@ leftArrow.addEventListener('mouseleave', ()=>{
 
 
 // load Animations for character reaction
+// const animation = bodymovin.loadAnimation({
+//   container: document.querySelector('.bodymovin'),
+//   renderer: 'svg',
+//   loop: true,
+//   autoplay: true,
+//   path: "js/json/data-idle.json",
+// })
 
-const characterAnimation = bodymovin.loadAnimation({
+const happyAnimation = bodymovin.loadAnimation({
 	container: document.querySelector('.bodymovin'),
     renderer: 'svg',
     loop: false,
     prerender: false,
     autoplay: false,
     autoloadSegments: false,
-    path: 'js/json/data-characterAnim.json',
+    path: 'js/json/data-happy.json',
 });
-
-
-const idleAnimFrames = [1,23];
-const happyAnimFrames = [24, 95];
-const happyTransitionFrames = [96, 107];
-const curiousAnimFrames = [108, 179];
-const curiousTransitionFrames = [180, 191];
-const sadAnimFrames = [192, 251];
-const sadTransitionFrames = [252, 275];
-
-
-// const happyAnimation = bodymovin.loadAnimation({
-// 	container: document.querySelector('.bodymovin'),
-//     renderer: 'svg',
-//     loop: false,
-//     prerender: false,
-//     autoplay: false,
-//     autoloadSegments: false,
-//     path: 'js/json/data-happy.json',
-// });
 
 //Begin general Function Setup
 
@@ -235,26 +219,33 @@ const playReaction = (value) =>{
 	console.log(value)
 	console.log('in playReaction');
 	if(value === 'rate-one'){
-		console.log("sad")
-		characterAnimation.playSegments(sadAnimFrames, true);
+		console.log("yay!1")
+		happyAnimation.playSegments([1,48], true);
 		isPlaying = false	
 	}
 
 	else if(value === 'rate-two'){
-		console.log("curious")
-		characterAnimation.playSegments(curiousAnimFrames, true)
+		console.log("yay!2")
+		console.log(happyAnimation.play());
+		happyAnimation.playSegments([1,48], true)
 	}
 
 	else if(value === 'rate-three'){
-		console.log("happy")
-		characterAnimation.playSegments(happyAnimFrames, true);
+		console.log("yay!3")
+		happyAnimation.playSegments([1,48], true);
 	}
 
 }
 
 // end Function Setup
 
-// Set up Event Listeners for text changes
+// Set up Event Listeners
+// const $nextButton = $('.js-slick-next');
+// const $prevButton = $('.js-slick-prev');
+// $nextButton.nextArrow('js-slick-next');
+// $prevButton.prevArrow('js-slick-prev');
+
+
 
 let isPlaying = false
 /*if (!isPlaying) {
@@ -266,7 +257,9 @@ const listOfButtons = document.querySelectorAll('.rate-star');
 for(let i = 0; i <listOfButtons.length; i++){
 
 	listOfButtons[i].addEventListener('mouseover', () => {
+		// if(!isAnythingChecked('rating')) {
 			characterResponse(listOfButtons[i].getAttribute('value'), '.js-question-one');
+		// }
 	})
 	listOfButtons[i].addEventListener('click', () => {
 		$('input[name=Choose]').attr('checked',false);
@@ -284,9 +277,6 @@ for(let i = 0; i <listOfButtons.length; i++){
 	})
 
 }
-
-
-
 
 
 
