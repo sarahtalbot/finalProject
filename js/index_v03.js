@@ -121,7 +121,7 @@ leftArrow.addEventListener('mouseleave', ()=>{
 const characterAnimation = bodymovin.loadAnimation({
 	container: document.querySelector('.bodymovin'),
     renderer: 'svg',
-    loop: false,
+    loop: true,
     prerender: false,
     autoplay: false,
     autoloadSegments: false,
@@ -129,29 +129,35 @@ const characterAnimation = bodymovin.loadAnimation({
 });
 
 
-const idleAnimFrames = [0,24];
-const happyAnimFrames = [25, 96];
-const happyTransitionFrames = [97, 108];
-const curiousAnimFrames = [109, 179];
+const idleAnimFrames = [0,23];
+const happyAnimFrames = [24, 95];
+const happyTransitionFrames = [96, 107];
+const curiousAnimFrames = [108, 179];
 const curiousTransitionFrames = [180, 191];
 const sadAnimFrames = [192, 251];
-const sadTransitionFrames = [252, 275];
+const sadTransitionFrames = [252, 276];
+
+const startAnimation = () =>{
+	characterAnimation.playSegments(idleAnimFrames, true)
+}
 
 const playIdleAnimation = () =>{
 	characterAnimation.playSegments(idleAnimFrames, true)
 	characterAnimation.loop = true;
 }
 
-const startAnimation = () =>{
-	playIdleAnimation();
-}
-
-// const loopCompleteHandler = () =>{
-// 	characterAnimation.removeEventListener('loopComplete', loopCompleteHandler);
-// }  
-
 characterAnimation.addEventListener('DOMLoaded',startAnimation);
 
+
+// const happyAnimation = bodymovin.loadAnimation({
+// 	container: document.querySelector('.bodymovin'),
+//     renderer: 'svg',
+//     loop: false,
+//     prerender: false,
+//     autoplay: false,
+//     autoloadSegments: false,
+//     path: 'js/json/data-happy.json',
+// });
 
 //Begin general Function Setup
 
@@ -234,28 +240,43 @@ const setQuestionTwo = (value, elementClass) =>{
 
 }
 
+/*const playTransition = () =>{
+	if currently played is sad
+		play sad transition
+	if currently played is curious
+		play curious transition
+	if currently played is happy
+		play happy transition
+	else
+		return 
+		play idle animation
+
+}
+*/
+
 
 const playReaction = (value) =>{
+	if(isPlaying){
+		return;
+	}
 	isPlaying = true;
+	characterAnimation.loop = false;
 	console.log(value)
 	console.log('in playReaction');
+	// playTransition();
 	if(value === 'rate-one'){
 		console.log("sad")
-		characterAnimation.playSegments([sadAnimFrames, sadTransitionFrames, idleAnimFrames], false);
-		// characterAnimation.playSegments(sadTransitionFrames, false);
-		isPlaying = false	
+		characterAnimation.playSegments(sadAnimFrames,true);
 	}
 
 	else if(value === 'rate-two'){
 		console.log("curious")
-		characterAnimation.playSegments([curiousAnimFrames, curiousTransitionFrames, idleAnimFrames], false);
-		// characterAnimation.playSegments(curiousTransitionFrames, false);
+		characterAnimation.playSegments(curiousAnimFrames, true)
 	}
 
 	else if(value === 'rate-three'){
 		console.log("happy")
-		characterAnimation.playSegments([happyAnimFrames, happyTransitionFrames, idleAnimFrames], false);
-		// characterAnimation.playSegments(happyTransitionFrames, false);
+		characterAnimation.playSegments(happyAnimFrames, true);
 	}
 
 }
@@ -265,6 +286,14 @@ const playReaction = (value) =>{
 // Set up Event Listeners for text changes
 
 let isPlaying = false
+
+const reactionComplete = () =>{
+	isPlaying = false;
+	// characterAnimation.removeEventListener('onComplete', reactionComplete)
+	// playIdleAnimation();
+}
+
+
 /*if (!isPlaying) {
 	// play Idle Animation
 };*/
@@ -282,6 +311,7 @@ for(let i = 0; i <listOfButtons.length; i++){
 		checkedValue = findCheckedValue('rating');
 		setQuestionTwo(checkedValue, '.js-question-two');
 		playReaction(checkedValue);
+		// characterAnimation.addEventListener('onComplete', reactionComplete)
 	})
 	listOfButtons[i].addEventListener('mouseout', () =>{
 		if (isAnythingChecked('rating')) {
@@ -292,3 +322,15 @@ for(let i = 0; i <listOfButtons.length; i++){
 	})
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
