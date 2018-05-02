@@ -21,79 +21,27 @@ $prevButton.on('click', ()=>{
 	$('.one-time').slick('slickPrev');
 })
 
-const freeForm = document.querySelector('.input-box-free');
-const nameForm = document.querySelector('.js-fullName');
-const emailForm = document.querySelector('.js-email');
-const submitButton = document.querySelector('.submit')
 
 // set up Checkbox controls
 const checkBox = document.querySelector('.js-checkbox');
 const checkBoxText = document.querySelector('.js-decline-text');
-const personalInfoForms = document.querySelectorAll('.js-personalInfo')
+console.log(checkBox)
+const nameForms = document.querySelectorAll('.js-personalInfo')
 checkBox.addEventListener('click', () =>{
 	if(checkBox.getAttribute('checked')){
-		nameForm.value ='';
-		emailForm.value = '';
 		checkBox.removeAttribute('checked');
 		checkBoxText.classList.toggle('inactive');
-		toggleInactive(submitButton);
-		for(let i=0; i<personalInfoForms.length; i++){
-			personalInfoForms[i].classList.toggle('inactive');
+		for(let i=0; i<nameForms.length; i++){
+			nameForms[i].classList.toggle('inactive');
 		}
 	}
 	else{
-		toggleInactive(submitButton);
 		checkBoxText.classList.toggle('inactive');
-		for(let i=0; i<personalInfoForms.length; i++){
-			personalInfoForms[i].classList.toggle('inactive');
+		for(let i=0; i<nameForms.length; i++){
+			nameForms[i].classList.toggle('inactive');
 		}
 	}
 });
-
-// const formList = [freeForm, nameForm, emailForm];
-
-freeForm.addEventListener('blur', ()=>{
-	console.log('free input blur');
-	console.log(isFormFilled(freeForm));
-	if(isFormFilled(freeForm)){
-		freeForm.classList.remove('warning');
-		toggleInactive(rightArrow);
-	}
-	else{
-		freeForm.classList.add('warning');
-	}
-		
-});
-
-
-nameForm.addEventListener('blur', ()=>{
-	console.log('name input blur');
-	if (isFormFilled(nameForm) && isFormFilled(emailForm)){
-		console.log('Both Forms Filled')
-		nameForm.classList.remove('warning');
-		toggleInactive(submitButton);
-
-	}
-	else{
-		nameForm.classList.add('warning')
-	}
-});
-
-emailForm.addEventListener('blur', ()=>{
-	if (isFormFilled(nameForm) && isFormFilled(emailForm)){
-		console.log('Both Forms Filled')
-		emailForm.classList.remove('warning');
-		toggleInactive(submitButton);
-
-	}
-	else{
-		emailForm.classList.add('warning')
-	}
-});
-
-submitButton.addEventListener('click', ()=>{
-	characterAnimation.playSegments([happyAnimFrames, happyTransitionFrames, idleAnimFrames], false);
-})
 
 
 // Arrow Buttons
@@ -164,11 +112,6 @@ leftArrow.addEventListener('mouseleave', ()=>{
 rightArrow.addEventListener('click', ()=>{
 	toggleInactive(rightArrow);
 });
-
-leftArrow.addEventListener('click', ()=>{
-	toggleInactive(rightArrow);
-});
-
 
 
 
@@ -252,11 +195,24 @@ const isAnythingChecked = (name) =>{
 }
 
 const isFormFilled = (element)=>{
-	console.log('value is', element.value)
-	if(element.value.length >0){
+	if(!element.target.value ===''){
 		return true
 	}
 }
+
+const freeInput = document.querySelector('input-box-free');
+
+freeInput.addEventListener('blur', ()=>{
+	console.log('free input blur');
+	if(isFormFilled(freeInput)){
+		toggleInactive(rightArrow);
+		freeInput.classList.remove('warning');
+	}
+	else{
+		freeInput.classList.add('warning');
+	}	
+});
+
 
 
 
@@ -306,20 +262,20 @@ const playReaction = (value) =>{
 	console.log(value)
 	console.log('in playReaction');
 	if(value === 'rate-one'){
-		console.log("sad")
+		// console.log("sad")
 		characterAnimation.playSegments([sadAnimFrames, sadTransitionFrames, idleAnimFrames], false);
 		// characterAnimation.playSegments(sadTransitionFrames, false);
 		isPlaying = false	
 	}
 
 	else if(value === 'rate-two'){
-		console.log("curious")
+		// console.log("curious")
 		characterAnimation.playSegments([curiousAnimFrames, curiousTransitionFrames, idleAnimFrames], false);
 		// characterAnimation.playSegments(curiousTransitionFrames, false);
 	}
 
 	else if(value === 'rate-three'){
-		console.log("happy")
+		// console.log("happy")
 		characterAnimation.playSegments([happyAnimFrames, happyTransitionFrames, idleAnimFrames], false);
 		// characterAnimation.playSegments(happyTransitionFrames, false);
 	}
@@ -330,6 +286,12 @@ const playReaction = (value) =>{
 
 // Set up Event Listeners for text changes
 
+// let isPlaying = false
+// if (!isPlaying) {
+// 	// play Idle Animation
+// };
+
+
 const listOfButtons = document.querySelectorAll('.rate-star');
 for(let i = 0; i <listOfButtons.length; i++){
 
@@ -337,7 +299,7 @@ for(let i = 0; i <listOfButtons.length; i++){
 			characterResponse(listOfButtons[i].getAttribute('value'), '.js-question-one');
 	})
 	listOfButtons[i].addEventListener('click', () => {
-		// $('input[name=Choose]').attr('checked',false);
+		$('input[name=Choose]').attr('checked',false);
 		characterResponse(listOfButtons[i].getAttribute('value'), '.js-question-one');
 		checkedValue = findCheckedValue('rating');
 		setQuestionTwo(checkedValue, '.js-question-two');
@@ -355,22 +317,32 @@ for(let i = 0; i <listOfButtons.length; i++){
 }
 
 
+// Not implemented: form checks
+// Need to determine an event to run the function
+// 		Possibly when last page loads? 
+// 		Or create a counter that counts up when an element is filled, and subtracts when element has a value of ''
+// 		Special cases for the radio button and checkbox
+// const isFormFilled = (element)=>{
+// 	if(!element.target.value ===''){
+// 		return true;
+// 	}
+// 	return false;
+
+// }
+
+// const isInfoComplete = ()=>{
+// 	if(isFormFilled(freeForm) && ((isFormFilled(nameForm) && isFormFilled(emailForm))||)&& isAnythingChecked('rating')){
+// 		submit.classList.add('inactive');
+// 	}
+// 	else{
+// 		submit.classList.remove('inactive');
+// 	}
+// }
 
 
-
-
-
-// 	// if(isFormFilled(freeInput)){
-// 	// 	toggleInactive(rightArrow);
-// 	// 	freeInput.classList.remove('warning');
-// 	// }
-// 	// else{
-// 		freeInput.classList.add('warning');
-// 	// }
-	
-// })
-
-
+// const freeForm = document.querySelector('.input-box-free')
+// const nameForm = document.querySelector('.js-name')
+// const emailForm = document.querySelector('.js-email')
 
 
 

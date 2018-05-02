@@ -131,8 +131,8 @@ body{
 	margin: 0;
 	width: 100%;
 	position: absolute;
-	top: 30px;
-	left: 60px;
+	top: 0px;
+	left: 20px;
 	background: transparent;
 
 }
@@ -167,7 +167,8 @@ body{
 }
 
 .input-box:focus{
-	border:2px solid #ff792e;	
+	border:2px solid #ff792e;
+	background-color: #fff;	
 }
 
 .input-box-free{
@@ -178,6 +179,11 @@ body{
 	margin: auto;
 	margin-bottom: 20px;
 	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.warning{
+	border-color:#dd5143;
+	background-color: #f7d8d4;
 }
 
 .short-anim{
