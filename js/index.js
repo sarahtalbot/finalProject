@@ -74,7 +74,7 @@ nameForm.addEventListener('blur', ()=>{
 		toggleInactive(submitButton);
 
 	}
-	else{
+	else if(!isFormFilled(nameForm)){
 		nameForm.classList.add('warning')
 	}
 });
@@ -86,7 +86,7 @@ emailForm.addEventListener('blur', ()=>{
 		toggleInactive(submitButton);
 
 	}
-	else{
+	else if(!isFormFilled(emailForm)){
 		emailForm.classList.add('warning')
 	}
 });
