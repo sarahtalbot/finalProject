@@ -129,6 +129,7 @@ body{
 
 .bodymovin{
 	margin: 0;
+	width: 100%;
 	position: absolute;
 	top: 30px;
 	left: 60px;
@@ -289,6 +290,10 @@ body{
 
 .slick-slide{
 	justify-content: center;
+}
+
+.slick-slide:focus{
+	outline:none;
 }
 
 
