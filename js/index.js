@@ -342,7 +342,8 @@ for(let i = 0; i <listOfButtons.length; i++){
 		checkedValue = findCheckedValue('rating');
 		setQuestionTwo(checkedValue, '.js-question-two');
 		playReaction(checkedValue);
-		toggleInactive(rightArrow);
+		// toggleInactive(rightArrow);
+		rightArrow.classList.toggle('inactive')
 	})
 	listOfButtons[i].addEventListener('mouseout', () =>{
 		if (isAnythingChecked('rating')) {
